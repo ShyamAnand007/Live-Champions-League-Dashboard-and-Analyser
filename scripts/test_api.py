@@ -1,20 +1,35 @@
 import os 
 import requests
 from dotenv import load_dotenv
+import json
 
 load_dotenv()
 
 apik=os.getenv("API_KEY")
-url="https://v3.football.api-sports.io/leagues"
+url="https://api.football-data.org/v4/competitions/CL/teams"
 headers={
-    "x-apisports-key":apik
+    "x-Auth-Token":apik
 }
+
 
 response=requests.get(url,headers=headers)
 
 print(response.status_code)
 data=response.json()
 
-for league in data["response"]:
-    if "Champions League" in league["league"]["name"]:
-        print(league["league"])
+print(data["count"])
+
+for team in data["teams"]:
+    print(
+        team["id"],
+        team["name"],
+        team["crest"],
+        team["area"]["name"],
+        team["venue"],
+    )
+
+
+
+
+
+
