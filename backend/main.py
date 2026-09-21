@@ -126,3 +126,41 @@ def get_matches(match_id:int):
             "stage": row[7],
             "status": row[8]
         }
+
+@app.get("/standings")
+def get_standings():
+    cursor=connection.cursor()
+    cursor.execute("""
+        SELECT  
+            s.position,
+            t.team_name,
+            s.played,
+            s.wins,
+            s.draws,
+            s.losses,
+            s.goals_for,
+            s.goals_against,
+            s.goal_d,
+            s.points
+        FROM standing s
+        JOIN team t
+            ON s.team_id=t.team_id
+        ORDER BY s.position
+    """)
+    rows=cursor.fetchall()
+    cursor.close()
+    standing=[]
+    for row in rows:
+        standing.append({
+              "position":row[0],
+              "team_name":row[1],
+              "played":row[2],
+              "wins":row[3],
+              "draws":row[4],
+              "losses":row[5],
+              "goals_for":row[6],
+              "goals_against":row[7],
+              "goals_difference":row[8],
+              "points":row[9]
+        })
+    return standing
