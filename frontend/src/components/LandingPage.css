@@ -1,0 +1,53 @@
+.landing-page {
+  isolation: isolate;
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #040a1c;
+}
+
+.corner-brackets,
+.corner-brackets::before,
+.corner-brackets::after {
+  position: absolute;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.corner-brackets {
+  inset: 28px;
+  border: 1px solid rgba(201, 211, 227, 0.14);
+}
+
+.corner-brackets::before,
+.corner-brackets::after {
+  content: '';
+  width: 46px;
+  height: 46px;
+}
+
+.corner-brackets::before {
+  top: -1px;
+  left: -1px;
+  border-top: 1px solid rgba(201, 211, 227, 0.48);
+  border-left: 1px solid rgba(201, 211, 227, 0.48);
+}
+
+.corner-brackets::after {
+  right: -1px;
+  bottom: -1px;
+  border-right: 1px solid rgba(201, 211, 227, 0.48);
+  border-bottom: 1px solid rgba(201, 211, 227, 0.48);
+}
+
+@media (max-width: 700px) {
+  .corner-brackets {
+    inset: 16px;
+  }
+
+  .corner-brackets::before,
+  .corner-brackets::after {
+    width: 28px;
+    height: 28px;
+  }
+}

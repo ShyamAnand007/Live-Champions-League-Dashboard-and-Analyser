@@ -1,0 +1,31 @@
+.placeholder-page {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  align-content: center;
+  gap: 24px;
+  background: #040a1c;
+  color: #ffffff;
+}
+
+.placeholder-page h1 {
+  margin: 0;
+  font-family: Anton, Impact, sans-serif;
+  font-size: clamp(4rem, 12vw, 10rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.placeholder-wordmark {
+  color: #c9d3e3;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.placeholder-wordmark:first-letter {
+  color: #2f6bff;
+}

@@ -1,0 +1,122 @@
+.background-scene {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #040a1c;
+}
+
+.stadium-image {
+  position: absolute;
+  inset: -12px;
+  width: calc(100% + 24px);
+  height: calc(100% + 24px);
+  object-fit: cover;
+  object-position: center center;
+  transform: translate3d(var(--parallax-x, 0), var(--parallax-y, 0), 0) scale(1.12);
+  animation: photo-settle 2.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.navy-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(4, 10, 28, 0.04) 8%, rgba(4, 10, 28, 0.2) 42%, rgba(4, 10, 28, 0.9) 100%);
+}
+
+.vignette-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 35%, rgba(4, 10, 28, 0.42) 100%);
+}
+
+.light-beam,
+.haze,
+.film-grain {
+  position: absolute;
+  pointer-events: none;
+}
+
+.light-beam {
+  width: 48vw;
+  height: 75vh;
+  mix-blend-mode: screen;
+  opacity: 0.1;
+  filter: blur(38px);
+  transform-origin: 90% 0;
+}
+
+.light-beam-one {
+  top: -30vh;
+  right: 13vw;
+  background: linear-gradient(115deg, transparent 42%, rgba(201, 211, 227, 0.65) 49%, transparent 56%);
+  animation: beam-sway-one 13s ease-in-out infinite alternate;
+}
+
+.light-beam-two {
+  top: -20vh;
+  right: -5vw;
+  background: linear-gradient(105deg, transparent 42%, rgba(94, 156, 255, 0.5) 50%, transparent 58%);
+  animation: beam-sway-two 17s ease-in-out infinite alternate;
+}
+
+.light-beam-three {
+  top: -14vh;
+  right: 28vw;
+  background: linear-gradient(120deg, transparent 43%, rgba(201, 211, 227, 0.38) 50%, transparent 57%);
+  animation: beam-sway-one 19s 2s ease-in-out infinite alternate-reverse;
+}
+
+.haze {
+  width: 55vw;
+  height: 28vh;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(135, 190, 255, 0.16), transparent 68%);
+  filter: blur(45px);
+  opacity: 0.34;
+}
+
+.haze-one {
+  right: -15vw;
+  bottom: 26%;
+  animation: haze-drift 18s ease-in-out infinite alternate;
+}
+
+.haze-two {
+  bottom: 8%;
+  left: -20vw;
+  opacity: 0.2;
+  animation: haze-drift 23s 1s ease-in-out infinite alternate-reverse;
+}
+
+.film-grain {
+  z-index: 2;
+  inset: 0;
+  opacity: 0.065;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.32'/%3E%3C/svg%3E");
+  mix-blend-mode: screen;
+}
+
+@keyframes photo-settle {
+  from { transform: translate3d(0, 0, 0) scale(1.12); }
+  to { transform: translate3d(var(--parallax-x, 0), var(--parallax-y, 0), 0) scale(1); }
+}
+
+@keyframes beam-sway-one {
+  from { transform: rotate(-4deg) translateX(-2%); }
+  to { transform: rotate(5deg) translateX(5%); }
+}
+
+@keyframes beam-sway-two {
+  from { transform: rotate(5deg) translateX(4%); }
+  to { transform: rotate(-5deg) translateX(-3%); }
+}
+
+@keyframes haze-drift {
+  from { transform: translateX(-8%); }
+  to { transform: translateX(18%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stadium-image { animation: none; transform: scale(1); }
+  .light-beam,
+  .haze { animation: none; }
+}
