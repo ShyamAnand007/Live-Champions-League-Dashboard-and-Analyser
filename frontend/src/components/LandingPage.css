@@ -51,3 +51,16 @@
     height: 28px;
   }
 }
+html,
+body,
+#root {
+  min-height: 100%;
+  height: auto;
+  overflow-y: auto;
+}
+
+.matches-page {
+  min-height: 100vh;
+  height: auto;
+  overflow: visible;
+}

@@ -1,0 +1,271 @@
+.matches-page {
+  position: relative;
+  min-height: 100vh;
+  background: #040a1c;
+  overflow-x: hidden;
+}
+
+.matches-page-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse at 80% 0%, rgba(10, 26, 74, 0.6), transparent 50%),
+    radial-gradient(ellipse at 20% 100%, rgba(47, 107, 255, 0.08), transparent 50%),
+    #040a1c;
+  pointer-events: none;
+}
+
+.matches-page-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 36px 40px 80px;
+}
+
+.matches-header {
+  margin-bottom: 28px;
+}
+
+.matches-heading {
+  margin: 0;
+  font-family: Anton, Impact, sans-serif;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.matches-subtitle {
+  margin: 8px 0 0;
+  color: rgba(201, 211, 227, 0.5);
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+.matches-filters {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 40px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(201, 211, 227, 0.08);
+}
+
+.filter-tabs {
+  display: flex;
+  gap: 6px;
+}
+
+.filter-tab {
+  padding: 9px 22px;
+  color: rgba(201, 211, 227, 0.55);
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: rgba(10, 26, 74, 0.2);
+  border: 1px solid rgba(201, 211, 227, 0.1);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: color 250ms cubic-bezier(0.22, 1, 0.36, 1),
+    background 250ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 250ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.filter-tab:hover {
+  color: #ffffff;
+  background: rgba(47, 107, 255, 0.08);
+  border-color: rgba(47, 107, 255, 0.25);
+}
+
+.filter-tab.is-active {
+  color: #ffffff;
+  background: rgba(47, 107, 255, 0.18);
+  border-color: rgba(47, 107, 255, 0.5);
+}
+
+.matchday-select {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.matchday-label {
+  color: rgba(201, 211, 227, 0.5);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.matchday-dropdown-wrap {
+  position: relative;
+}
+
+.matchday-dropdown {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 9px 36px 9px 16px;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(10, 26, 74, 0.3);
+  border: 1px solid rgba(201, 211, 227, 0.15);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border-color 250ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.matchday-dropdown:hover {
+  border-color: rgba(47, 107, 255, 0.4);
+}
+
+.matchday-dropdown:focus {
+  outline: none;
+  border-color: rgba(47, 107, 255, 0.6);
+}
+
+.matchday-dropdown option {
+  background: #0a1a4a;
+  color: #ffffff;
+}
+
+.matchday-arrow {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(201, 211, 227, 0.5);
+  font-size: 0.6rem;
+  pointer-events: none;
+}
+
+.matches-list {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.match-date-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.match-date-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.match-date-label {
+  margin: 0;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.match-date-matchday {
+  color: rgba(47, 107, 255, 0.7);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border: 1px solid rgba(47, 107, 255, 0.25);
+  border-radius: 3px;
+}
+
+.match-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.matches-empty {
+  display: grid;
+  place-items: center;
+  padding: 80px 20px;
+  color: rgba(201, 211, 227, 0.4);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 960px) {
+  .match-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .matches-page-content {
+    padding: 24px 20px 60px;
+  }
+
+  .matches-filters {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .filter-tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+
+  .filter-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-tab {
+    padding: 8px 16px;
+    font-size: 0.74rem;
+    white-space: nowrap;
+  }
+
+  .matchday-select {
+    justify-content: flex-start;
+  }
+
+  .match-date-header {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .match-date-label {
+    font-size: 0.88rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .filter-tab,
+  .matchday-dropdown {
+    transition: none;
+  }
+}
+html,
+body,
+#root {
+  min-height: 100%;
+  height: auto;
+  overflow-y: auto;
+}
+
+.matches-page {
+  min-height: 100vh;
+  height: auto;
+  overflow: visible;
+}
